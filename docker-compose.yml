@@ -1,0 +1,14 @@
+version: '2'
+services:
+    test-as-vscode:
+        image: 1018998632/as-vscode-dev-env:v7
+        container_name: test-as-vscode
+        restart: always
+        network_mode: "host"
+        privileged: true
+        tty: true
+        stdin_open: true
+        volumes:
+            - ~/as-dev-env/data:/root/data
+        command: /bin/zsh
+# 7642 8080
