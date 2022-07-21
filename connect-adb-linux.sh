@@ -6,9 +6,12 @@ host=$1
 echo ">>>>>>>> 重启本地 adb 服务"
 pkill -9 adb
 adb start-server
+
 echo ">>>>>>>> 关闭 $1 中的 adb 服务"
-ssh -p 22 -q -o ControlMaster=auto -o ControlPath=/tmp/%r@%h-adb -o ControlPersist=2h $host "pkill -9 adb"
+ssh -q -o ControlMaster=auto -o ControlPath=/tmp/%r@%h-adb -o ControlPersist=2h $host "sudo pkill -9 adb"
+ssh -q -o ControlMaster=auto -o ControlPath=/tmp/%r@%h-adb -o ControlPersist=2h $host "sudo adb devices"
 echo ">>>>>>>> 转发本地 adb 服务到 $1 中"
-ssh -p 22 -q -o ControlMaster=auto -o ControlPath=/tmp/%r@%h-adb -o ControlPersist=2h -R5037:127.0.0.1:5037 -O forward $host
+ssh -q -o ControlMaster=auto -o ControlPath=/tmp/%r@%h-adb -o ControlPersist=2h -R5037:127.0.0.1:5037 -O forward $host
+ssh -q -o ControlMaster=auto -o ControlPath=/tmp/%r@%h-adb -o ControlPersist=2h $host "sudo pkill -9 adb"
 echo ">>>>>>>>  $1 中 adb 连接的手机实例如下："
-ssh -p 22 -q -o ControlMaster=auto -o ControlPath=/tmp/%r@%h-adb -o ControlPersist=2h $host "adb devices"
+ssh -q -o ControlMaster=auto -o ControlPath=/tmp/%r@%h-adb -o ControlPersist=2h $host "sudo adb devices"

@@ -9,6 +9,6 @@ services:
         tty: true
         stdin_open: true
         volumes:
-            - ~/as-dev-env/data:/root/data
+            - .:/root/data
         command: /bin/zsh
 # 7642 8080

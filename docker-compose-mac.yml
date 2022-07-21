@@ -12,6 +12,6 @@ services:
             - "7642:7642"
             - "2222:22"
         volumes:
-            - ~/as-dev-env/data:/root/data
+            - ./data:/root/data
         command: /bin/zsh
 # 7642 8080
