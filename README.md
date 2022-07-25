@@ -47,13 +47,11 @@
 
 ### 1.Mac系统快速部署
 
-第一步：[安装Docker](https://zhuanlan.zhihu.com/p/91116621)，非常简单我就不重复了。**注意 Mac 下的 Docker 默认给予的资源是不太够的，需要大家手动将内存设置到最少8g，不然会出现 AS 启动不了的情况。**
+第一步：[安装Docker](https://zhuanlan.zhihu.com/p/91116621) 和 Docker-Compose，非常简单我就不重复了。**注意 Mac 下的 Docker 默认给予的资源是不太够的，需要大家手动将内存设置到最少8g，不然会出现 AS 启动不了的情况。**
 
-第二步：执行 `git clone git@github.com:whenSunSet/AS-CODA-Init-Data.git ~/as-dev-env-init`，随便放在一个位置，例如 ～/as-dev-env-init。**注意后面的部署目录不要放在这个目录里，否则会报错。**
+第二步：执行 `git clone git@github.com:whenSunSet/AS-CODA-Init-Data.git ~/as-dev-env`，随便放在一个位置，例如 ～/as-dev-env。
 
-第三步：因为我们后面的命令依赖 **gsed**，所以这里我们通过 brew 来安装。可以执行 `brew install gnu-sed` 来进行安装。
-
-第四步：执行 `cd ~/as-dev-env-init && sh run-mac.sh`，然后输入你期望部署的路径，例如我们输入 **default** 将部署的目录设置为 ～/as-dev-env，接下来就是等待了。
+第四步：执行 `cd ~/as-dev-env && sh run-mac.sh`，接下来就是等待了。
 **注意这一步可能会花费比较长的时间，因为我们的镜像比较大，大家需要耐心等待，如果下载速度过慢建议使用国内的 docker 镜像加速。**
 
 第五步：最后当我们的容器启动之后，我们在容器内执行 `cat nohup.out` 可以发现输出了一些提示，我们依照提示访问例如：https://localhost:7642/?token=20220119.test.Androidstudio ，此时就能看见 AS 的页面了。
@@ -64,7 +62,7 @@
 
 第二步：执行 `git clone git@github.com:whenSunSet/AS-CODA-Init-Data.git ~/as-dev-env`，随便放在一个位置，例如 ～/as-dev-env。
 
-第三步：执行 `cd ~/as-dev-env && bash run-linux.sh`，然后输入你期望部署的路径，例如我们输入 **default** 将部署的目录设置为 ～/as-dev-env，接下来就是等待了。
+第三步：执行 `cd ~/as-dev-env && bash run-linux.sh`，接下来就是等待了。
 **注意这一步可能会花费比较长的时间，因为我们的镜像比较大，大家需要耐心等待，如果下载速度过慢建议使用国内的 docker 镜像加速。**
 
 第四步：最后当我们的容器启动之后，我们在容器内执行 `cat nohup.out` 可以发现输出了一些提示，我们依照提示访问例如：https://localhost:7642/?token=20220119.test.Androidstudio ，此时就能看见 AS 的页面了。
